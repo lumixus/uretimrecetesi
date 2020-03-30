@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace uretimrecetesi
 {
-    public partial class Form1 : Form
+    public partial class giris : Form
     {
-        public Form1()
+        public giris()
         {
             InitializeComponent();
         }
