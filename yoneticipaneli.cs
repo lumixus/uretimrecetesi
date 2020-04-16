@@ -16,5 +16,27 @@ namespace uretimrecetesi
         {
             InitializeComponent();
         }
+
+        private void yoneticipaneli_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected virtual void yoneticipaneli_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            DialogResult Cikis;
+            Cikis = MessageBox.Show("Program Kapatılacak Emin siniz?", "Kapatma Uyarısı!", MessageBoxButtons.YesNo);
+            if (Cikis == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            if (Cikis == DialogResult.No)
+            {
+                Application.Run();
+            }
+
+        }
+
     }
 }
