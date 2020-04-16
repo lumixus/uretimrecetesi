@@ -112,6 +112,7 @@
             this.Name = "giris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Üretim Reçetesi Giriş";
+            this.Load += new System.EventHandler(this.giris_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,5 +16,10 @@ namespace uretimrecetesi
         {
             InitializeComponent();
         }
+
+        private void giris_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
