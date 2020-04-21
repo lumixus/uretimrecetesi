@@ -12,6 +12,8 @@ namespace uretimrecetesi
 {
     public partial class yoneticipaneli : Form
     {
+        private bool Kapatsorgu;
+        DialogResult dr = DialogResult.No;
         public yoneticipaneli()
         {
             InitializeComponent();
@@ -21,22 +23,33 @@ namespace uretimrecetesi
         {
             
         }
-
-        protected virtual void yoneticipaneli_FormClosed(object sender, FormClosedEventArgs e)
+        private void çıkışToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            DialogResult Cikis;
-            Cikis = MessageBox.Show("Program Kapatılacak Emin siniz?", "Kapatma Uyarısı!", MessageBoxButtons.YesNo);
-            if (Cikis == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            if (Cikis == DialogResult.No)
-            {
-                Application.Run();
-            }
-
+            giris giris = new giris();
+            giris.Show();
+            this.Hide();
         }
 
+        private void yoneticipaneli_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!Kapatsorgu) 
+            {
+                dr = MessageBox.Show("Çıkmak istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                Kapatsorgu = dr == DialogResult.Yes;
+            }
+            if (dr == DialogResult.Yes)
+            {
+                if (Kapatsorgu) 
+                {
+                    
+                    Application.Exit();
+                }
+                Kapatsorgu = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
