@@ -121,6 +121,9 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Malzeme ID",
+            "Malzeme Adı"});
             this.comboBox1.Location = new System.Drawing.Point(607, 375);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 29);
@@ -226,6 +229,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "sevkiyat_malzemeleri";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sevkiyat Malzemeleri";
             this.Load += new System.EventHandler(this.sevkiyat_malzemeleri_Load);
             this.panel1.ResumeLayout(false);

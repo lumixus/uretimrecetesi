@@ -42,6 +42,15 @@ namespace uretimrecetesi
             veriler.Fill(verikumesi, "uretimdeolan");
             return verikumesi.Tables["uretimdeolan"];
         }
+
+        public DataTable select_bulunan_urunler()
+        {
+            var veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
         public DataTable select_uretim()
         {
             var veriler = new OleDbDataAdapter("SELECT * FROM uretim", con);

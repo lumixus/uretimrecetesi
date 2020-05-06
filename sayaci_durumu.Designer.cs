@@ -53,7 +53,8 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.Location = new System.Drawing.Point(422, 391);
+            this.button6.Location = new System.Drawing.Point(421, 391);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(111, 43);
             this.button6.TabIndex = 33;
@@ -64,6 +65,7 @@
             // 
             this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button5.Location = new System.Drawing.Point(168, 391);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(228, 43);
             this.button5.TabIndex = 32;
@@ -74,6 +76,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button4.Location = new System.Drawing.Point(21, 450);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(121, 41);
             this.button4.TabIndex = 31;
@@ -84,6 +87,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button3.Location = new System.Drawing.Point(21, 391);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 43);
             this.button3.TabIndex = 30;
@@ -112,30 +116,34 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(575, 9);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 317);
+            this.panel1.Size = new System.Drawing.Size(601, 318);
             this.panel1.TabIndex = 28;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(251, 130);
+            this.dateTimePicker2.Location = new System.Drawing.Point(225, 140);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(309, 32);
+            this.dateTimePicker2.Size = new System.Drawing.Size(365, 32);
             this.dateTimePicker2.TabIndex = 21;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(251, 80);
+            this.dateTimePicker1.Location = new System.Drawing.Point(225, 90);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(309, 32);
+            this.dateTimePicker1.Size = new System.Drawing.Size(365, 32);
             this.dateTimePicker1.TabIndex = 20;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(81, 230);
+            this.button2.Location = new System.Drawing.Point(56, 240);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 54);
             this.button2.TabIndex = 19;
@@ -158,7 +166,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(76, 80);
+            this.label1.Location = new System.Drawing.Point(51, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 30);
             this.label1.TabIndex = 10;
@@ -167,9 +175,10 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.Location = new System.Drawing.Point(251, 180);
+            this.textBox4.Location = new System.Drawing.Point(225, 190);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(309, 32);
+            this.textBox4.Size = new System.Drawing.Size(365, 32);
             this.textBox4.TabIndex = 6;
             // 
             // label3
@@ -177,7 +186,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(76, 180);
+            this.label3.Location = new System.Drawing.Point(51, 190);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 30);
             this.label3.TabIndex = 12;
@@ -188,7 +197,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(76, 130);
+            this.label2.Location = new System.Drawing.Point(51, 140);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 30);
             this.label2.TabIndex = 11;
@@ -197,9 +206,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(286, 336);
+            this.button1.Location = new System.Drawing.Point(384, 335);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 35);
+            this.button1.Size = new System.Drawing.Size(148, 34);
             this.button1.TabIndex = 27;
             this.button1.Text = "Ara";
             this.button1.UseVisualStyleBackColor = true;
@@ -207,7 +217,8 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(148, 339);
+            this.textBox1.Location = new System.Drawing.Point(245, 336);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 32);
             this.textBox1.TabIndex = 26;
@@ -216,9 +227,13 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(21, 336);
+            this.comboBox1.Items.AddRange(new object[] {
+            "ID",
+            "Yapılan Ürün"});
+            this.comboBox1.Location = new System.Drawing.Point(21, 334);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 35);
+            this.comboBox1.Size = new System.Drawing.Size(204, 35);
             this.comboBox1.TabIndex = 25;
             // 
             // dataGridView1
@@ -226,7 +241,9 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(21, 70);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(533, 223);
             this.dataGridView1.TabIndex = 24;
@@ -247,6 +264,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "sayaci_durumu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sayacı Durumu";
