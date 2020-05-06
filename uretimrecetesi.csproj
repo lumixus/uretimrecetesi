@@ -108,6 +108,9 @@
     <EmbeddedResource Include="giris.resx">
       <DependentUpon>giris.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="hammaddeler.resx">
+      <DependentUpon>hammaddeler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="personeller.resx">
       <DependentUpon>personeller.cs</DependentUpon>
     </EmbeddedResource>
