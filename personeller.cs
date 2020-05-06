@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace uretimrecetesi
 {
-    public partial class personeller : Form
+    public partial class Personeller : Form
     {
-        public personeller()
+        public Personeller()
         {
             InitializeComponent();
         }

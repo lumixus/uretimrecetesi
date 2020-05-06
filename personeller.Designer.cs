@@ -1,6 +1,6 @@
 ﻿namespace uretimrecetesi
 {
-    partial class personeller
+    partial class Personeller
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // personeller
+            // Personeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 566);
-            this.Name = "personeller";
+            this.Name = "Personeller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Personeller";
             this.ResumeLayout(false);

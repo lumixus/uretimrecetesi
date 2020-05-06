@@ -66,7 +66,7 @@ namespace uretimrecetesi
 
         private void personellerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            personeller personel = new personeller();
+            Personeller personel = new Personeller();
             personel.Show();
         }
 
