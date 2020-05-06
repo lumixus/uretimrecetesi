@@ -219,7 +219,7 @@
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dateTimePicker1.Location = new System.Drawing.Point(306, 280);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 32);
+            this.dateTimePicker1.Size = new System.Drawing.Size(308, 32);
             this.dateTimePicker1.TabIndex = 17;
             // 
             // panel1
@@ -243,7 +243,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(589, 21);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(779, 535);
+            this.panel1.Size = new System.Drawing.Size(622, 535);
             this.panel1.TabIndex = 18;
             // 
             // radioButton1
@@ -349,7 +349,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1468, 749);
+            this.ClientSize = new System.Drawing.Size(1257, 629);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
