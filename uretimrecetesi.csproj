@@ -114,6 +114,9 @@
     <EmbeddedResource Include="hammaddeler.resx">
       <DependentUpon>hammaddeler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="kesim_durumu.resx">
+      <DependentUpon>kesim_durumu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="personeller.resx">
       <DependentUpon>personeller.cs</DependentUpon>
     </EmbeddedResource>
