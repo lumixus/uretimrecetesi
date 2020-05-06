@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace uretimrecetesi
 {
@@ -15,6 +16,19 @@ namespace uretimrecetesi
         public guncel_uretim()
         {
             InitializeComponent();
+
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            
+            dataGridView1.DataSource = yeni.select_uretim();
+            dataGridView2.DataSource =yeni.select_gunceluretim() ;
+            yeni.baglantikapat();
+
+        }
+
+        private void guncel_uretim_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
