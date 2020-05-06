@@ -127,6 +127,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="sayaci_durumu.resx">
+      <DependentUpon>sayaci_durumu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="yoneticipaneli.resx">
       <DependentUpon>yoneticipaneli.cs</DependentUpon>
     </EmbeddedResource>
