@@ -48,10 +48,12 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -78,7 +80,7 @@
             // personellerToolStripMenuItem
             // 
             this.personellerToolStripMenuItem.Name = "personellerToolStripMenuItem";
-            this.personellerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personellerToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.personellerToolStripMenuItem.Text = "Personeller";
             this.personellerToolStripMenuItem.Click += new System.EventHandler(this.personellerToolStripMenuItem_Click);
             // 
@@ -236,12 +238,22 @@
             this.dataGridView3.Size = new System.Drawing.Size(444, 179);
             this.dataGridView3.TabIndex = 11;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::uretimrecetesi.Properties.Resources.personelerkek;
+            this.pictureBox1.Location = new System.Drawing.Point(42, 355);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 77);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // yoneticipaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(991, 568);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView2);
@@ -261,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +300,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
