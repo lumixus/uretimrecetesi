@@ -29,5 +29,10 @@ namespace uretimrecetesi
             else
                 MessageBox.Show("HATALI", "GİRİŞ");
         }
+
+        private void giris_FormClosing(object sender, FormClosingEventArgs e)
+        {
+                    Application.Exit();
+        }
     }
 }

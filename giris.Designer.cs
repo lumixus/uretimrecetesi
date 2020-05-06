@@ -114,6 +114,7 @@
             this.Name = "giris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Üretim Reçetesi Giriş";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.giris_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
