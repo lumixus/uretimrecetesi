@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="baglanti.cs" />
     <Compile Include="bulunan_urunler.cs">
       <SubType>Form</SubType>
     </Compile>
