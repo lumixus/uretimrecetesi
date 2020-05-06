@@ -16,5 +16,10 @@ namespace uretimrecetesi
         {
             InitializeComponent();
         }
+
+        private void sevkiyat_malzemeleri_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
