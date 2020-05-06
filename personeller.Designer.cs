@@ -101,7 +101,7 @@
             this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox2.Location = new System.Drawing.Point(306, 80);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 32);
+            this.textBox2.Size = new System.Drawing.Size(308, 32);
             this.textBox2.TabIndex = 4;
             // 
             // textBox3
@@ -109,7 +109,7 @@
             this.textBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox3.Location = new System.Drawing.Point(306, 130);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 32);
+            this.textBox3.Size = new System.Drawing.Size(308, 32);
             this.textBox3.TabIndex = 5;
             // 
             // textBox4
@@ -117,7 +117,7 @@
             this.textBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox4.Location = new System.Drawing.Point(306, 180);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 32);
+            this.textBox4.Size = new System.Drawing.Size(308, 32);
             this.textBox4.TabIndex = 6;
             // 
             // textBox5
@@ -125,7 +125,7 @@
             this.textBox5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox5.Location = new System.Drawing.Point(306, 230);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 32);
+            this.textBox5.Size = new System.Drawing.Size(308, 32);
             this.textBox5.TabIndex = 7;
             // 
             // textBox6
@@ -133,7 +133,7 @@
             this.textBox6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.textBox6.Location = new System.Drawing.Point(306, 330);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 32);
+            this.textBox6.Size = new System.Drawing.Size(308, 32);
             this.textBox6.TabIndex = 8;
             // 
             // label1
