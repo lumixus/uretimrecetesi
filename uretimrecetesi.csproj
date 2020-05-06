@@ -130,6 +130,9 @@
     <EmbeddedResource Include="sayaci_durumu.resx">
       <DependentUpon>sayaci_durumu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sevkiyat_malzemeleri.resx">
+      <DependentUpon>sevkiyat_malzemeleri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="yoneticipaneli.resx">
       <DependentUpon>yoneticipaneli.cs</DependentUpon>
     </EmbeddedResource>
