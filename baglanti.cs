@@ -48,6 +48,21 @@ namespace uretimrecetesi
             veriler.Fill(verikumesi, "hammaddeler");
             return verikumesi.Tables["hammaddeler"];
         }
+        public DataTable select_hammaddeler()
+        {
+            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "hammaddeler");
+            return verikumesi.Tables["hammaddeler"];
+        }
+        public OleDbDataReader select_hammaddeAlanlari()
+        {
+            cmd.CommandText = "SELECT * FROM hammaddeler";
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            var alanlar = cmd.ExecuteReader();
+            return alanlar;
+        }
 
     }
 }
