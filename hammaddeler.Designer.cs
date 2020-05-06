@@ -59,6 +59,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(19, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(444, 179);
             this.dataGridView1.TabIndex = 8;
             // 
@@ -93,6 +94,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(293, 27);
             this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.Value = new System.DateTime(2020, 5, 7, 2, 10, 41, 0);
             // 
             // label1
             // 
@@ -176,11 +178,15 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Hammadde ID",
+            "Hammadde Adı"});
             this.comboBox1.Location = new System.Drawing.Point(605, 376);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 29);
@@ -215,6 +221,7 @@
             this.button2.TabIndex = 22;
             this.button2.Text = "Sil";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -225,6 +232,7 @@
             this.button3.TabIndex = 23;
             this.button3.Text = "Arama";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button6
             // 
@@ -235,6 +243,7 @@
             this.button6.TabIndex = 26;
             this.button6.Text = "İlk Kayıt";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button4
             // 
@@ -245,6 +254,7 @@
             this.button4.TabIndex = 27;
             this.button4.Text = "Son Kayıt";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 

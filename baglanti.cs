@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
+using System.Windows.Forms;
 
 namespace uretimrecetesi
 {
@@ -62,14 +63,61 @@ namespace uretimrecetesi
             veriler.Fill(verikumesi, "hammaddeler");
             return verikumesi.Tables["hammaddeler"];
         }
-        public OleDbDataReader select_hammaddeAlanlari()
+
+        public DataTable searchHammaddeID(string id)
         {
-            cmd.CommandText = "SELECT * FROM hammaddeler";
+            var veriler = new OleDbDataAdapter("select * from hammaddeler", con);
+
+           if(id != ""){ 
+           veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler WHERE ham_id =" + Convert.ToInt32(id), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "hammaddeler");
+            return verikumesi.Tables["hammaddeler"];
+        }
+        public DataTable searchHammaddeAdi(string name)
+        {
+            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler WHERE ham_adi LIKE '%"+name+"%'", con);
+            if (name == "")
+            {
+                veriler = new OleDbDataAdapter("select * from hammaddeler", con);
+            }
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "hammaddeler");
+            return verikumesi.Tables["hammaddeler"];
+        }
+        public void insertHammadde(string hammaddeadi, float hammaddemiktar, int minmiktar, DateTime alistar)
+        {
+            cmd.CommandText = "INSERT INTO hammaddeler (ham_adi,ham_miktar,alis_tar,min_miktar) values (@hammaddeadi,@hammaddemiktar,@alistar,@minmiktar)";
+            cmd.Parameters.AddWithValue("@hammaddeadi", hammaddeadi);
+            cmd.Parameters.AddWithValue("@hammaddemiktar", hammaddemiktar);
+            cmd.Parameters.AddWithValue("@alistar", alistar);
+            cmd.Parameters.AddWithValue("@minmiktar", minmiktar);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            var alanlar = cmd.ExecuteReader();
-            return alanlar;
+            MessageBox.Show("Hammadde Eklendi");
         }
-
+        public void deleteHammadde(int id)
+        {
+            cmd.CommandText = "DELETE FROM hammaddeler WHERE ham_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+        public DataTable ilkkayit()
+        {
+            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler ORDER BY ham_id ASC", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "hammaddeler");
+            return verikumesi.Tables["hammaddeler"];
+        }
+        public DataTable sonkayit()
+        {
+            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler ORDER BY ham_id DESC", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "hammaddeler");
+            return verikumesi.Tables["hammaddeler"];
+        }
     }
 }
