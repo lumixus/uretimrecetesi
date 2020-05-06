@@ -105,6 +105,9 @@
     <Compile Include="yoneticipaneli.Designer.cs">
       <DependentUpon>yoneticipaneli.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="bulunan_urunler.resx">
+      <DependentUpon>bulunan_urunler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="giris.resx">
       <DependentUpon>giris.cs</DependentUpon>
     </EmbeddedResource>
