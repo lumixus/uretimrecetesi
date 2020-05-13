@@ -198,5 +198,109 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
+
+        public DataTable searchKesimID(string kid)
+        {
+            var veriler = new OleDbDataAdapter("select * from kesim", con);
+
+            if (kid != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM kesim WHERE kesim_id =" + Convert.ToInt32(kid), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "kesim");
+            return verikumesi.Tables["kesim"];
+        }
+        public DataTable selectKesim()
+        {
+            var veriler = new OleDbDataAdapter("select * from kesim", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "kesim");
+            return verikumesi.Tables["kesim"];
+        }
+        public DataTable searchKesilenMal(string kmal)
+        {
+            var veriler = new OleDbDataAdapter("select * from kesim", con);
+
+            if (kmal != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM kesim WHERE kesilen_malzeme LIKE '%" + kmal + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "kesim");
+            return verikumesi.Tables["kesim"];
+        }
+        public void insertKesim(DateTime ktar, string kmal, string kmik, DateTime svertar)
+        {
+
+            cmd.CommandText = "INSERT INTO kesim (kesim_tar,kesilen_malzeme,kesilen_miktar,sayaciya_verilen_tar) values (@ktari,@kmalz,@kmiktar,@svertari)";
+            cmd.Parameters.AddWithValue("@ktari", ktar);
+            cmd.Parameters.AddWithValue("@kmalz", kmal);
+            cmd.Parameters.AddWithValue("@kmiktar", kmik);
+            cmd.Parameters.AddWithValue("@svertari", svertar);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Kesim Eklendi");
+        }
+        public void deleteKesim(int kid)
+        {
+            cmd.CommandText = "DELETE FROM kesim WHERE kesim_id = @id";
+            cmd.Parameters.AddWithValue("@id", kid);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+
+        public DataTable searchSevkiyatID(string sid)
+        {
+            var veriler = new OleDbDataAdapter("select * from sevkiyat_malzeme", con);
+
+            if (sid != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sevkiyat_malzeme WHERE malzeme_id =" + Convert.ToInt32(sid), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sevkiyat_malzeme");
+            return verikumesi.Tables["sevkiyat_malzeme"];
+        }
+        public DataTable selectSevkiyat()
+        {
+            var veriler = new OleDbDataAdapter("select * from sevkiyat_malzeme", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sevkiyat_malzeme");
+            return verikumesi.Tables["sevkiyat_malzeme"];
+        }
+        public DataTable searchSevkiyatMalzemeAdi(string smal)
+        {
+            var veriler = new OleDbDataAdapter("select * from sevkiyat_malzeme", con);
+
+            if (smal != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sevkiyat_malzeme WHERE malzeme_adi LIKE '%" + smal + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sevkiyat_malzeme");
+            return verikumesi.Tables["sevkiyat_malzeme"];
+        }
+        public void insertSevkiyat(string smal, string smalmik)
+        {
+
+            cmd.CommandText = "INSERT INTO sevkiyat_malzeme (malzeme_adi,malzeme_miktar) values (@smaladi,@smalmiktar)";
+            cmd.Parameters.AddWithValue("@smaladi", smal);
+            cmd.Parameters.AddWithValue("@smalmiktar", smalmik);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Sevkiyat Malzemesi Eklendi");
+        }
+        public void deleteSevkiyat(int sid)
+        {
+            cmd.CommandText = "DELETE FROM sevkiyat_malzeme WHERE malzeme_id = @id";
+            cmd.Parameters.AddWithValue("@id", sid);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
     }
 }
