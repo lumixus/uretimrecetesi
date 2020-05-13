@@ -198,5 +198,69 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
+        public DataTable select_sayaci()
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public void deleteSayaci(int id)
+        {
+            cmd.CommandText = "DELETE FROM sayaci WHERE sayaci_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+        public DataTable searchsayaciID(string id)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (id != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE sayaci_id =" + Convert.ToInt32(id), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public DataTable searchverilis_tar(string verilis_tar)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (verilis_tar != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE verilis_tar LIKE '%" + verilis_tar + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public DataTable searchyapilan_urun(string yapilan_urun)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (yapilan_urun != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE yapilan_urun LIKE '%" + yapilan_urun + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public void insertsayaci(string urun, DateTime vertar, DateTime geltar)
+        {
+
+            cmd.CommandText = "INSERT INTO sayaci (verilis_tar,gelis_tar,yapilan_urun) values (@vertar,@geltar,@urun)";
+            cmd.Parameters.AddWithValue("@vertar", vertar);
+            cmd.Parameters.AddWithValue("@geltar", geltar);
+            cmd.Parameters.AddWithValue("@urun", urun);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Personel Eklendi");
+        }
     }
 }
