@@ -69,20 +69,8 @@ namespace uretimrecetesi
      
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            baglanti yeni = new baglanti();
-            yeni.baglandimi();
-           dataGridView1.DataSource = yeni.ilkkayit();
-            yeni.baglantikapat();
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            baglanti yeni = new baglanti();
-            yeni.baglandimi();
-           dataGridView1.DataSource = yeni.sonkayit();
-            yeni.baglantikapat();
-        }
+
+
     }
 }

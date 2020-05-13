@@ -114,19 +114,89 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
-        public DataTable ilkkayit()
+
+
+        public DataTable searchpersonelID(string id)
         {
-            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler ORDER BY ham_id ASC", con);
+            var veriler = new OleDbDataAdapter("select * from pers", con);
+
+            if (id != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM pers WHERE pers_id =" + Convert.ToInt32(id), con);
+            }
+
             var verikumesi = new DataSet();
-            veriler.Fill(verikumesi, "hammaddeler");
-            return verikumesi.Tables["hammaddeler"];
+            veriler.Fill(verikumesi, "pers");
+            return verikumesi.Tables["pers"];
         }
-        public DataTable sonkayit()
+        public DataTable selectPersonel()
         {
-            var veriler = new OleDbDataAdapter("SELECT * FROM hammaddeler ORDER BY ham_id DESC", con);
+            var veriler = new OleDbDataAdapter("select * from pers", con);
             var verikumesi = new DataSet();
-            veriler.Fill(verikumesi, "hammaddeler");
-            return verikumesi.Tables["hammaddeler"];
+            veriler.Fill(verikumesi, "pers");
+            return verikumesi.Tables["pers"];
+        }
+        public DataTable searchPersonelAdi(string ad)
+        {
+            var veriler = new OleDbDataAdapter("select * from pers", con);
+
+            if (ad != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM pers WHERE pers_adi LIKE '%"+ad +"%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "pers");
+            return verikumesi.Tables["pers"];
+        }
+        public DataTable searchPersonelSoyadi(string soyad)
+        {
+            var veriler = new OleDbDataAdapter("select * from pers", con);
+
+            if (soyad != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM pers WHERE pers_soyadi LIKE '%"+soyad+"%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "pers");
+            return verikumesi.Tables["pers"];
+        }
+        public DataTable searchPersoneltc(string tc)
+        {
+            var veriler = new OleDbDataAdapter("select * from pers", con);
+
+            if (tc != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM pers WHERE pers_tc = '"+tc+"'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "pers");
+            return verikumesi.Tables["pers"];
+        }
+        public void insertPersonel(string ad, string soyad, string tc, string tel,DateTime isbas,string gorev,string mail,string cinsiyet)
+        {
+     
+          cmd.CommandText = "INSERT INTO pers (pers_adi,pers_soyadi,pers_tc,pers_telno,pers_gorev_id,is_bas_tar,cinsiyet,pers_mail) values (@adi,@soyadi,@tc,@tel,@gorevid,@isbas,@cinsiyet,@mail)";
+            cmd.Parameters.AddWithValue("@adi", ad);
+            cmd.Parameters.AddWithValue("@soyadi", soyad);
+            cmd.Parameters.AddWithValue("@tc", tc);
+            cmd.Parameters.AddWithValue("@tel", tel);
+            cmd.Parameters.AddWithValue("@gorevid", gorev);
+            cmd.Parameters.AddWithValue("@isbas", isbas);
+            cmd.Parameters.AddWithValue("@cinsiyet", cinsiyet);
+            cmd.Parameters.AddWithValue("@mail", mail);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Personel Eklendi");
+        }
+        public void deletePersonel(int id)
+        {
+            cmd.CommandText = "DELETE FROM pers WHERE pers_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
         }
     }
 }
