@@ -61,9 +61,14 @@ namespace uretimrecetesi
 
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            yeni.insertsayaci(urun, vertar, geltar);
+            yeni.insertsayaci(vertar, geltar, urun);
             dataGridView1.DataSource = yeni.select_sayaci();
             yeni.baglantikapat();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

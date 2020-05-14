@@ -70,6 +70,7 @@
             this.button5.TabIndex = 32;
             this.button5.Text = "Değişiklikleri Kaydet";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label9
             // 
@@ -209,8 +210,8 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "ID",
-            "Yapılan Ürün",
-            "Verilen Tarih"});
+            "Verilen Tarih",
+            "Yapılan Ürün"});
             this.comboBox1.Location = new System.Drawing.Point(21, 334);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
