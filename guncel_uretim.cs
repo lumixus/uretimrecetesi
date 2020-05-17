@@ -52,5 +52,10 @@ namespace uretimrecetesi
             dataGridView2.DataSource = yeni.select_gunceluretim();
                 yeni.baglantikapat();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
