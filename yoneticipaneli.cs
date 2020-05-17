@@ -110,5 +110,11 @@ namespace uretimrecetesi
         {
 
         }
+
+        private void üretimŞemalarıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            uretimsemasi uretimsemasi = new uretimsemasi();
+            uretimsemasi.Show();
+        }
     }
 }

@@ -366,5 +366,19 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Sayacı Eklendi");
         }
+        public void insertUretimSemasi(string uretimadi, float sunnideri, float deri,float bagcik,float ilac,float salpa, float taban)
+        {
+            cmd.CommandText = "INSERT INTO uretim (uretilecek_urun,sunnideri,deri,bagcik,ilac,salpa,taban) values (@uretimadi,@sunnideri,@deri,@bagcik,@ilac,@salpa,@taban)";
+            cmd.Parameters.AddWithValue("@uretimadi",uretimadi);
+            cmd.Parameters.AddWithValue("@sunnideri", sunnideri);
+            cmd.Parameters.AddWithValue("@deri", deri);
+            cmd.Parameters.AddWithValue("@bagcik", bagcik);
+            cmd.Parameters.AddWithValue("@ilac", ilac);
+            cmd.Parameters.AddWithValue("@salpa", salpa);
+            cmd.Parameters.AddWithValue("@taban", taban);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Üretim Şeması Eklendi");
+        }
     }
 }
