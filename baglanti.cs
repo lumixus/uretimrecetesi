@@ -355,13 +355,14 @@ namespace uretimrecetesi
             veriler.Fill(verikumesi, "yapilan_urun");
             return verikumesi.Tables["yapilan_urun"];
         }
-        public void insertsayaci(DateTime vertar, DateTime geltar, string urun)
+        public void insertsayaci(DateTime vertar, DateTime geltar, string urun,string sayaciadi)
         {
 
-            cmd.CommandText = "INSERT INTO sayaci (verilis_tar,gelis_tar,yapilan_urun) values (@vertar,@geltar,@urun)";
+            cmd.CommandText = "INSERT INTO sayaci (verilis_tar,gelis_tar,yapilan_urun,sayaci_adi) values (@vertar,@geltar,@urun,@sayaciadi)";
             cmd.Parameters.AddWithValue("@vertar", vertar);
             cmd.Parameters.AddWithValue("@geltar", geltar);
             cmd.Parameters.AddWithValue("@tc", urun);
+            cmd.Parameters.AddWithValue("@sayaciadi", sayaciadi);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
             MessageBox.Show("Sayacı Eklendi");
@@ -497,6 +498,75 @@ namespace uretimrecetesi
             var verikumesi = new DataSet();
             veriler.Fill(verikumesi, "uretim");
             return verikumesi.Tables["uretim"];
+        }
+        public void UretimeEkle(int uretimSayisi,string uretilecekurun)
+        {
+            int deri, bagcik, salpa, taban, ilac, sunideri,gereklideri,gereklibagcik,gereklisalpa,gereklitaban,gerekliilac,gereklisunideri;
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Deri'";
+            cmd.ExecuteNonQuery();
+            deri = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Bağcık'";
+            cmd.ExecuteNonQuery();
+            bagcik = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Salpa'";
+            cmd.ExecuteNonQuery();
+            salpa = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Taban'";
+            cmd.ExecuteNonQuery();
+            taban = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'İlaç'";
+            cmd.ExecuteNonQuery();
+            ilac = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Suni Deri'";
+            cmd.ExecuteNonQuery();
+            sunideri = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT * FROM uretim WHERE uretilecek_urun=@uretilecekurun";
+            cmd.Parameters.AddWithValue("@uretilecekurun", uretilecekurun);
+            var reader = cmd.ExecuteReader();
+            reader.Read();
+    
+           gereklideri = Convert.ToInt32(reader[3]);
+             gereklibagcik = Convert.ToInt32(reader[4]);
+             gereklisalpa = Convert.ToInt32(reader[6]);
+             gereklitaban = Convert.ToInt32(reader[7]);
+             gerekliilac = Convert.ToInt32(reader[5]);
+             gereklisunideri = Convert.ToInt32(reader[2]);
+            deri = deri - (gereklideri * uretimSayisi);
+            bagcik = bagcik - (gereklibagcik * uretimSayisi);
+            salpa = salpa - (gereklisalpa * uretimSayisi);
+            taban = taban - (gereklitaban * uretimSayisi);
+            ilac = ilac - (gerekliilac * uretimSayisi);
+            sunideri = sunideri - (gereklisunideri * uretimSayisi);
+            reader.Close();
+            if (deri < 0 || bagcik < 0 || salpa  < 0 || taban < 0 || ilac  < 0 || sunideri < 0)
+            {
+                MessageBox.Show("Gerekli Hammadde Yok !");
+            }
+            else
+            {
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+deri +" WHERE ham_adi = 'Deri'";
+              
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+bagcik+" WHERE ham_adi = 'Bağcık'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+salpa+ " WHERE ham_adi = 'Salpa'";
+         
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+ilac+" WHERE ham_adi = 'İlaç'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+sunideri+" WHERE ham_adi = 'Suni Deri'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+taban+" WHERE ham_adi = 'Taban'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "INSERT INTO uretimdeolan (uretim_durumu,uretilen_urun,uretim_adedi) values ('Başlangıç','"+uretilecekurun+"','"+uretimSayisi+"')";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Üretime Eklendi"); 
+        }
         }
     }
 }
