@@ -51,6 +51,7 @@ namespace uretimrecetesi
             {
                 dataGridView1.DataSource = yeni.searchyapilan_urun(degisken);
             }
+            yeni.baglantikapat();
         }
 
         private void button2_Click(object sender, EventArgs e)

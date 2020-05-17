@@ -380,5 +380,123 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Üretim Şeması Eklendi");
         }
+        public void deleteUretimsemasi(int id)
+        {
+            cmd.CommandText = "DELETE FROM uretim WHERE uretim_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+        public DataTable select_uretimsemasi()
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchUretilecekurun(string urun)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (urun != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE uretilecek_urun LIKE '%" + urun + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretilecek_urun");
+            return verikumesi.Tables["uretilecek_urun"];
+        }
+        public DataTable searchuretimID(string id)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (id != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE uretim_id =" + Convert.ToInt32(id), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchSunnideri(string sunniD)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (sunniD != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE sunnideri =" + Convert.ToInt32(sunniD), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchDeri(string deri)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (deri != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE deri =" + Convert.ToInt32(deri), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchBagcik(string bagcik)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (bagcik != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE bagcik =" + Convert.ToInt32(bagcik), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchİlac(string ilac)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (ilac != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE ilac =" + Convert.ToInt32(ilac), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchSalpa(string salpa)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (salpa != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE salpa =" + Convert.ToInt32(salpa), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchTaban(string taban)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (taban != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE taban =" + Convert.ToInt32(taban), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
     }
 }
