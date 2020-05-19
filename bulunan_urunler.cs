@@ -38,5 +38,37 @@ namespace uretimrecetesi
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+            string ad = textBox1.Text;
+            string adet = textBox2.Text;
+            string fiyat = textBox3.Text;
+            string model = textBox4.Text;
+            string numara = textBox5.Text;
+            string rengi = textBox6.Text;
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.insertBulunan(ad, adet, fiyat, model, numara, rengi);
+            dataGridView1.DataSource = yeni.selectBulunan();
+            yeni.baglantikapat();
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+             baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                yeni.deleteBulunan(Convert.ToInt32(row.Cells[0].Value.ToString()));
+            }
+            MessageBox.Show("Personel Silindi");
+            dataGridView1.DataSource = yeni.selectBulunan();
+            yeni.baglantikapat();
+        }
     }
 }

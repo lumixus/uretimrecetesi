@@ -302,5 +302,137 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
+
+
+
+
+
+        public DataTable searchBulunanID(string bulunanid)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (bulunanid != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_id =" + Convert.ToInt32(bulunanid), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+        public DataTable selectBulunan()
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
+        public DataTable searchUrunAd(string UrunAd)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunAd != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunAd + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
+        public DataTable searchUrunAdet(string UrunA)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunA != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunA + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
+
+        public DataTable searchUrunFiyat(string UrunF)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunF != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunF + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
+
+        public DataTable searchUrunM(string UrunM)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunM != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunM + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+        public DataTable searchUrunN(string UrunN)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunN != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunN + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+
+        public DataTable searchUrunR(string UrunR)
+        {
+            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
+
+            if (UrunR != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunR + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "bulunan_urunler");
+            return verikumesi.Tables["bulunan_urunler"];
+        }
+        public void insertBulunan( string UrunAd,string UrunA, string UrunF, string UrunM,string UrunN,string UrunR)
+        {
+
+            cmd.CommandText = "INSERT INTO bulunan_urunler (urun_adi,urun_adet,birim_fiyat,modeli,numara,rengi) values (@UrunAd,@UrunA,@UrunF,@UrunM,@UrunN,@UrunR)";
+            cmd.Parameters.AddWithValue("@UrunAD", UrunAd);
+            cmd.Parameters.AddWithValue("@UrunA", UrunA);
+            cmd.Parameters.AddWithValue("@UrunF", UrunF);
+            cmd.Parameters.AddWithValue("@UrunM", UrunM);
+            cmd.Parameters.AddWithValue("@UrunN", UrunN);
+            cmd.Parameters.AddWithValue("@UrunR", UrunR);
+       
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Urun Eklendi");
+        }
+        public void deleteBulunan(int kid)
+        {
+            cmd.CommandText = "DELETE FROM bulunan_urunler WHERE urun_id = @id";
+            cmd.Parameters.AddWithValue("@id", kid);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
     }
 }
