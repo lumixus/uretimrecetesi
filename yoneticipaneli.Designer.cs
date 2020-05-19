@@ -39,6 +39,7 @@
             this.güncelÜretimDurumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kesimDurumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sayacıDurumuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.üretimŞemalarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.çıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -60,6 +62,7 @@
             this.personelToolStripMenuItem,
             this.depoToolStripMenuItem,
             this.üretimToolStripMenuItem,
+            this.raporToolStripMenuItem,
             this.çıkışToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -78,7 +81,7 @@
             // personellerToolStripMenuItem
             // 
             this.personellerToolStripMenuItem.Name = "personellerToolStripMenuItem";
-            this.personellerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personellerToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.personellerToolStripMenuItem.Text = "Personeller";
             this.personellerToolStripMenuItem.Click += new System.EventHandler(this.personellerToolStripMenuItem_Click);
             // 
@@ -118,7 +121,8 @@
             this.üretimToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.güncelÜretimDurumuToolStripMenuItem,
             this.kesimDurumuToolStripMenuItem,
-            this.sayacıDurumuToolStripMenuItem});
+            this.sayacıDurumuToolStripMenuItem,
+            this.üretimŞemalarıToolStripMenuItem});
             this.üretimToolStripMenuItem.Name = "üretimToolStripMenuItem";
             this.üretimToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.üretimToolStripMenuItem.Text = "Üretim";
@@ -143,6 +147,13 @@
             this.sayacıDurumuToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
             this.sayacıDurumuToolStripMenuItem.Text = "Sayacı Durumu";
             this.sayacıDurumuToolStripMenuItem.Click += new System.EventHandler(this.sayacıDurumuToolStripMenuItem_Click);
+            // 
+            // üretimŞemalarıToolStripMenuItem
+            // 
+            this.üretimŞemalarıToolStripMenuItem.Name = "üretimŞemalarıToolStripMenuItem";
+            this.üretimŞemalarıToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.üretimŞemalarıToolStripMenuItem.Text = "Üretim Şemaları";
+            this.üretimŞemalarıToolStripMenuItem.Click += new System.EventHandler(this.üretimŞemalarıToolStripMenuItem_Click);
             // 
             // çıkışToolStripMenuItem
             // 
@@ -236,6 +247,12 @@
             this.dataGridView3.Size = new System.Drawing.Size(444, 179);
             this.dataGridView3.TabIndex = 11;
             // 
+            // raporToolStripMenuItem
+            // 
+            this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
+            this.raporToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.raporToolStripMenuItem.Text = "Rapor";
+            // 
             // yoneticipaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,5 +304,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.ToolStripMenuItem üretimŞemalarıToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporToolStripMenuItem;
     }
 }

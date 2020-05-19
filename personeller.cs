@@ -21,11 +21,6 @@ namespace uretimrecetesi
             yeni.baglantikapat();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             baglanti yeni = new baglanti();
@@ -85,6 +80,16 @@ namespace uretimrecetesi
            yeni.insertPersonel(ad, soyad, tc, tel, isbas, gorev, mail, cinsiyet);
             dataGridView1.DataSource = yeni.selectPersonel();
             yeni.baglantikapat();
+        }
+
+        private void Personeller_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
