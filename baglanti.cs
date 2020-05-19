@@ -302,6 +302,7 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
+<<<<<<< HEAD
 
 
 
@@ -433,6 +434,273 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@id", kid);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
+=======
+        public DataTable select_sayaci()
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public void deleteSayaci(int kid)
+        {
+            cmd.CommandText = "DELETE FROM sayaci WHERE sayaci_id = @id";
+            cmd.Parameters.AddWithValue("@id", kid);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+        public DataTable searchsayaciID(string id)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (id != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE sayaci_id =" + Convert.ToInt32(id), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "sayaci");
+            return verikumesi.Tables["sayaci"];
+        }
+        public DataTable searchverilis_tar(string vertar)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (vertar != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE verilis_tar LIKE '%" + vertar + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "verilis_tar");
+            return verikumesi.Tables["verilis_tar"];
+        }
+        public DataTable searchyapilan_urun(string urun)
+        {
+            var veriler = new OleDbDataAdapter("select * from sayaci", con);
+
+            if (urun != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM sayaci WHERE yapilan_urun LIKE '%" + urun + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "yapilan_urun");
+            return verikumesi.Tables["yapilan_urun"];
+        }
+        public void insertsayaci(DateTime vertar, DateTime geltar, string urun,string sayaciadi)
+        {
+
+            cmd.CommandText = "INSERT INTO sayaci (verilis_tar,gelis_tar,yapilan_urun,sayaci_adi) values (@vertar,@geltar,@urun,@sayaciadi)";
+            cmd.Parameters.AddWithValue("@vertar", vertar);
+            cmd.Parameters.AddWithValue("@geltar", geltar);
+            cmd.Parameters.AddWithValue("@tc", urun);
+            cmd.Parameters.AddWithValue("@sayaciadi", sayaciadi);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Sayacı Eklendi");
+        }
+        public void insertUretimSemasi(string uretimadi, float sunnideri, float deri,float bagcik,float ilac,float salpa, float taban)
+        {
+            cmd.CommandText = "INSERT INTO uretim (uretilecek_urun,sunnideri,deri,bagcik,ilac,salpa,taban) values (@uretimadi,@sunnideri,@deri,@bagcik,@ilac,@salpa,@taban)";
+            cmd.Parameters.AddWithValue("@uretimadi",uretimadi);
+            cmd.Parameters.AddWithValue("@sunnideri", sunnideri);
+            cmd.Parameters.AddWithValue("@deri", deri);
+            cmd.Parameters.AddWithValue("@bagcik", bagcik);
+            cmd.Parameters.AddWithValue("@ilac", ilac);
+            cmd.Parameters.AddWithValue("@salpa", salpa);
+            cmd.Parameters.AddWithValue("@taban", taban);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Üretim Şeması Eklendi");
+        }
+        public void deleteUretimsemasi(int id)
+        {
+            cmd.CommandText = "DELETE FROM uretim WHERE uretim_id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+        }
+        public DataTable select_uretimsemasi()
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchUretilecekurun(string urun)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (urun != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE uretilecek_urun LIKE '%" + urun + "%'", con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretilecek_urun");
+            return verikumesi.Tables["uretilecek_urun"];
+        }
+        public DataTable searchuretimID(string id)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (id != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE uretim_id =" + Convert.ToInt32(id), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchSunnideri(string sunniD)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (sunniD != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE sunnideri =" + Convert.ToInt32(sunniD), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchDeri(string deri)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (deri != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE deri =" + Convert.ToInt32(deri), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchBagcik(string bagcik)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (bagcik != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE bagcik =" + Convert.ToInt32(bagcik), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchİlac(string ilac)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (ilac != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE ilac =" + Convert.ToInt32(ilac), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchSalpa(string salpa)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (salpa != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE salpa =" + Convert.ToInt32(salpa), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public DataTable searchTaban(string taban)
+        {
+            var veriler = new OleDbDataAdapter("select * from uretim", con);
+
+            if (taban != "")
+            {
+                veriler = new OleDbDataAdapter("SELECT * FROM uretim WHERE taban =" + Convert.ToInt32(taban), con);
+            }
+
+            var verikumesi = new DataSet();
+            veriler.Fill(verikumesi, "uretim");
+            return verikumesi.Tables["uretim"];
+        }
+        public void UretimeEkle(int uretimSayisi,string uretilecekurun)
+        {
+            int deri, bagcik, salpa, taban, ilac, sunideri,gereklideri,gereklibagcik,gereklisalpa,gereklitaban,gerekliilac,gereklisunideri;
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Deri'";
+            cmd.ExecuteNonQuery();
+            deri = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Bağcık'";
+            cmd.ExecuteNonQuery();
+            bagcik = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Salpa'";
+            cmd.ExecuteNonQuery();
+            salpa = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Taban'";
+            cmd.ExecuteNonQuery();
+            taban = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'İlaç'";
+            cmd.ExecuteNonQuery();
+            ilac = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT ham_miktar FROM hammaddeler WHERE ham_adi = 'Suni Deri'";
+            cmd.ExecuteNonQuery();
+            sunideri = (int)cmd.ExecuteScalar();
+            cmd.CommandText = "SELECT * FROM uretim WHERE uretilecek_urun=@uretilecekurun";
+            cmd.Parameters.AddWithValue("@uretilecekurun", uretilecekurun);
+            var reader = cmd.ExecuteReader();
+            reader.Read();
+    
+           gereklideri = Convert.ToInt32(reader[3]);
+             gereklibagcik = Convert.ToInt32(reader[4]);
+             gereklisalpa = Convert.ToInt32(reader[6]);
+             gereklitaban = Convert.ToInt32(reader[7]);
+             gerekliilac = Convert.ToInt32(reader[5]);
+             gereklisunideri = Convert.ToInt32(reader[2]);
+            deri = deri - (gereklideri * uretimSayisi);
+            bagcik = bagcik - (gereklibagcik * uretimSayisi);
+            salpa = salpa - (gereklisalpa * uretimSayisi);
+            taban = taban - (gereklitaban * uretimSayisi);
+            ilac = ilac - (gerekliilac * uretimSayisi);
+            sunideri = sunideri - (gereklisunideri * uretimSayisi);
+            reader.Close();
+            if (deri < 0 || bagcik < 0 || salpa  < 0 || taban < 0 || ilac  < 0 || sunideri < 0)
+            {
+                MessageBox.Show("Gerekli Hammadde Yok !");
+            }
+            else
+            {
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+deri +" WHERE ham_adi = 'Deri'";
+              
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+bagcik+" WHERE ham_adi = 'Bağcık'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+salpa+ " WHERE ham_adi = 'Salpa'";
+         
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+ilac+" WHERE ham_adi = 'İlaç'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+sunideri+" WHERE ham_adi = 'Suni Deri'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "UPDATE hammaddeler SET ham_miktar = "+taban+" WHERE ham_adi = 'Taban'";
+           
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "INSERT INTO uretimdeolan (uretim_durumu,uretilen_urun,uretim_adedi) values ('Başlangıç','"+uretilecekurun+"','"+uretimSayisi+"')";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Üretime Eklendi"); 
+        }
+>>>>>>> 4729cbf54ba9389daa57948b4bc02ab0b6a72c86
         }
     }
 }
