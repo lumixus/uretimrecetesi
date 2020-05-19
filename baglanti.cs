@@ -302,11 +302,6 @@ namespace uretimrecetesi
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
         }
-<<<<<<< HEAD
-
-
-
-
 
         public DataTable searchBulunanID(string bulunanid)
         {
@@ -434,7 +429,7 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@id", kid);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-=======
+        }
         public DataTable select_sayaci()
         {
             var veriler = new OleDbDataAdapter("select * from sayaci", con);
@@ -700,7 +695,6 @@ namespace uretimrecetesi
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Üretime Eklendi"); 
         }
->>>>>>> 4729cbf54ba9389daa57948b4bc02ab0b6a72c86
         }
     }
 }
