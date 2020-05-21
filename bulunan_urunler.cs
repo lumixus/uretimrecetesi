@@ -73,7 +73,7 @@ namespace uretimrecetesi
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var degisken = textBox1.Text;
+            var degisken = textBox7.Text;
             baglanti yeni = new baglanti();
             yeni.baglandimi();
             if (comboBox1.SelectedIndex == 0)

@@ -366,36 +366,7 @@ namespace uretimrecetesi
             veriler.Fill(verikumesi, "bulunan_urunler");
             return verikumesi.Tables["bulunan_urunler"];
         }
-
-
-        public DataTable searchUrunM(string UrunM)
-        {
-            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
-
-            if (UrunM != "")
-            {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE numara LIKE '%" + UrunM + "%'", con);
-            }
-
-            var verikumesi = new DataSet();
-            veriler.Fill(verikumesi, "bulunan_urunler");
-            return verikumesi.Tables["bulunan_urunler"];
-        }
-        public DataTable searchUrunN(string UrunN)
-        {
-            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
-
-            if (UrunN != "")
-            {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE rengi LIKE '%" + UrunN + "%'", con);
-            }
-
-            var verikumesi = new DataSet();
-            veriler.Fill(verikumesi, "bulunan_urunler");
-            return verikumesi.Tables["bulunan_urunler"];
-        }
-
-        
+         
         public void insertBulunan(string UrunAd,string UrunModeli, string UrunF, string UrunM,string UrunN,string UrunR)
         {
 
