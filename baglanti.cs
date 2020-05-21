@@ -330,7 +330,7 @@ namespace uretimrecetesi
 
             if (UrunAd != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunAd + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adi LIKE '%" + UrunAd + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -338,13 +338,13 @@ namespace uretimrecetesi
             return verikumesi.Tables["bulunan_urunler"];
         }
 
-        public DataTable searchUrunAdet(string UrunA)
+        public DataTable searchUrunModel(string UrunModeli)
         {
             var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
 
-            if (UrunA != "")
+            if (UrunModeli != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunA + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE modeli LIKE '%" + UrunModeli + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -359,7 +359,7 @@ namespace uretimrecetesi
 
             if (UrunF != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunF + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE birim_fiyat LIKE '%" + UrunF + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -374,7 +374,7 @@ namespace uretimrecetesi
 
             if (UrunM != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunM + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE numara LIKE '%" + UrunM + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -387,7 +387,7 @@ namespace uretimrecetesi
 
             if (UrunN != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunN + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE rengi LIKE '%" + UrunN + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -395,30 +395,17 @@ namespace uretimrecetesi
             return verikumesi.Tables["bulunan_urunler"];
         }
 
-        public DataTable searchUrunR(string UrunR)
-        {
-            var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
-
-            if (UrunR != "")
-            {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adet LIKE '%" + UrunR + "%'", con);
-            }
-
-            var verikumesi = new DataSet();
-            veriler.Fill(verikumesi, "bulunan_urunler");
-            return verikumesi.Tables["bulunan_urunler"];
-        }
-        public void insertBulunan( string UrunAd,string UrunA, string UrunF, string UrunM,string UrunN,string UrunR)
+        
+        public void insertBulunan(string UrunAd,string UrunModeli, string UrunF, string UrunM,string UrunN,string UrunR)
         {
 
-            cmd.CommandText = "INSERT INTO bulunan_urunler (urun_adi,urun_adet,birim_fiyat,modeli,numara,rengi) values (@UrunAd,@UrunA,@UrunF,@UrunM,@UrunN,@UrunR)";
+            cmd.CommandText = "INSERT INTO bulunan_urunler (urun_adi,urun_adet,birim_fiyat,modeli,numara,rengi) values (@UrunAd,@UrunModel,@UrunF,@UrunM,@UrunN,@UrunR)";
             cmd.Parameters.AddWithValue("@UrunAD", UrunAd);
-            cmd.Parameters.AddWithValue("@UrunA", UrunA);
+            cmd.Parameters.AddWithValue("@UrunModel", UrunModeli);
             cmd.Parameters.AddWithValue("@UrunF", UrunF);
             cmd.Parameters.AddWithValue("@UrunM", UrunM);
             cmd.Parameters.AddWithValue("@UrunN", UrunN);
             cmd.Parameters.AddWithValue("@UrunR", UrunR);
-       
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
             MessageBox.Show("Urun Eklendi");
