@@ -82,11 +82,11 @@ namespace uretimrecetesi
             }
             else if (comboBox1.SelectedIndex == 1)
             {
-                dataGridView1.DataSource = yeni.searchUrunAd(degisken);
+                dataGridView1.DataSource = yeni.searchBulananadi(degisken);
             }
             else if (comboBox1.SelectedIndex == 2)
             {
-                dataGridView1.DataSource = yeni.searchUrunModel(degisken);
+                dataGridView1.DataSource = yeni.searchBulananmodel(degisken);
             }
             yeni.baglantikapat();
         }

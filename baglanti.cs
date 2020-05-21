@@ -303,13 +303,13 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
         }
 
-        public DataTable searchBulunanID(string bulunanid)
+        public DataTable searchBulunanID(string Bid)
         {
             var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
 
-            if (bulunanid != "")
+            if (Bid != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_id =" + Convert.ToInt32(bulunanid), con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_id =" + Convert.ToInt32(Bid), con);
             }
 
             var verikumesi = new DataSet();
@@ -324,13 +324,13 @@ namespace uretimrecetesi
             return verikumesi.Tables["bulunan_urunler"];
         }
 
-        public DataTable searchUrunAd(string UrunAd)
+        public DataTable searchBulananadi(string adı)
         {
             var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
 
-            if (UrunAd != "")
+            if (adı != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adi LIKE '%" + UrunAd + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE urun_adi LIKE '%" + adı + "%'", con);
             }
 
             var verikumesi = new DataSet();
@@ -338,13 +338,13 @@ namespace uretimrecetesi
             return verikumesi.Tables["bulunan_urunler"];
         }
 
-        public DataTable searchUrunModel(string UrunModeli)
+        public DataTable searchBulananmodel(string model)
         {
             var veriler = new OleDbDataAdapter("select * from bulunan_urunler", con);
 
-            if (UrunModeli != "")
+            if (model != "")
             {
-                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE modeli LIKE '%" + UrunModeli + "%'", con);
+                veriler = new OleDbDataAdapter("SELECT * FROM bulunan_urunler WHERE modeli LIKE '%" + model + "%'", con);
             }
 
             var verikumesi = new DataSet();
