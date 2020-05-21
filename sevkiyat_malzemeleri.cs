@@ -23,7 +23,16 @@ namespace uretimrecetesi
 
         private void sevkiyat_malzemeleri_Load(object sender, EventArgs e)
         {
-
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,6 +73,42 @@ namespace uretimrecetesi
                 dataGridView1.DataSource = yeni.searchSevkiyatMalzemeAdi(degisken);
             }
             yeni.baglantikapat();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            if(textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox1.Clear();
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
+
         }
     }
 }
