@@ -654,5 +654,16 @@ namespace uretimrecetesi
                 MessageBox.Show("Üretime Eklendi"); 
         }
         }
+        public void UpdateSevkiyat(int id,string malzemeadi,string miktar)
+        {
+            cmd.CommandText = "UPDATE sevkiyat_malzeme SET malzeme_adi = @malzemeadi , malzeme_miktar = @malzememiktar WHERE malzeme_id ="+id;
+           // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@malzemeadi", malzemeadi);
+            cmd.Parameters.AddWithValue("@malzememiktar", miktar);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+
+        }
     }
 }

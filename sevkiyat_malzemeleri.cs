@@ -110,5 +110,14 @@ namespace uretimrecetesi
             }
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.UpdateSevkiyat(Convert.ToInt32(textBox3.Text), textBox1.Text, textBox2.Text);
+            dataGridView1.DataSource = yeni.selectSevkiyat();
+            yeni.baglantikapat();
+        }
     }
 }
