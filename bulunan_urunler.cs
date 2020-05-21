@@ -51,7 +51,7 @@ namespace uretimrecetesi
             string rengi = textBox6.Text;
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            yeni.insertBulunan(ad, adet, fiyat, model, numara, rengi);
+            yeni.insertBulunan(ad, adet, fiyat, model, numara,rengi);
             dataGridView1.DataSource = yeni.selectBulunan();
             yeni.baglantikapat();
 
@@ -68,6 +68,26 @@ namespace uretimrecetesi
             }
             MessageBox.Show("Personel Silindi");
             dataGridView1.DataSource = yeni.selectBulunan();
+            yeni.baglantikapat();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var degisken = textBox7.Text;
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            if (comboBox1.SelectedIndex == 0)
+            {
+                dataGridView1.DataSource = yeni.searchBulunanID(degisken);
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                dataGridView1.DataSource = yeni.searchBulananadi(degisken);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                dataGridView1.DataSource = yeni.searchBulananmodel(degisken);
+            }
             yeni.baglantikapat();
         }
     }
