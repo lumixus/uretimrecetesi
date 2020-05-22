@@ -665,7 +665,7 @@ namespace uretimrecetesi
             MessageBox.Show("Güncellendi " + id + "ID");
 
         }
-        public void UpdateUretimSemasi(string id,string uretilecekurun, string sunideri,string deri,string bagcik,string ilac,string salpa,string taban)
+        public void UpdateUretimSemasi(int id,string uretilecekurun, string sunideri,string deri,string bagcik,string ilac,string salpa,string taban)
         {
             cmd.CommandText = "UPDATE uretim SET uretilecek_urun = @uretilecekurun , sunnideri = @sunideri, deri = @deri, bagcik=@bagcik, ilac=@ilac,salpa=@salpa,taban=@taban WHERE uretim_id =" + id;
             // cmd.Parameters.AddWithValue("@id", id);
@@ -680,7 +680,7 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");
         }
-        public void UpdateSayaciDurumu(string id, DateTime vertar, DateTime geltar, string yapurun, string versay)
+        public void UpdateSayaciDurumu(int id, DateTime vertar, DateTime geltar, string yapurun, string versay)
         {
             cmd.CommandText = "UPDATE sayaci SET verilis_tar = @vertar , gelis_tar = @geltar, yapilan_urun = @yapurun, sayaci_adi=@versay WHERE sayaci_id =" + id;
             // cmd.Parameters.AddWithValue("@id", id);
@@ -692,9 +692,9 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");
         }
-        public void UpdatePersonel(string id, string ad, string soyad, string tc, string tel, DateTime tar, string gorev, string mail,string cins)
+        public void UpdatePersonel(int id, string ad, string soyad, string tc, string tel, DateTime tar, string gorev, string mail,string cins)
         {
-            cmd.CommandText = "UPDATE pers SET pers_adi = @ad , pers_soyadi = @soyad, pers_tc = @tv, pers_telno = @tel, pers_gorev_id = @gorev, is_bas_tar = @tar, cinsiyet = @cins, pers_mail = @mail WHERE pers_id =" + id;
+            cmd.CommandText = "UPDATE pers SET pers_adi = @ad , pers_soyadi = @soyad, pers_tc = @tc, pers_telno = @tel, pers_gorev_id = @gorev, is_bas_tar = @tar, cinsiyet = @cins, pers_mail = @mail WHERE pers_id =" + id;
             // cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@ad", ad);
             cmd.Parameters.AddWithValue("@soyad", soyad);
@@ -704,6 +704,18 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@tar", tar);
             cmd.Parameters.AddWithValue("@mail", mail);
             cmd.Parameters.AddWithValue("@cins", cins);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+        }
+        public void UpdateKesim(int id, DateTime kestar, string kesmaz, string kesmik, DateTime sayvertar)
+        {
+            cmd.CommandText = "UPDATE kesim SET kesim_tar = @kestar , kesilen_malzeme = @kesmaz, kesilen_miktar = @kesmik, sayaciya_verilen_tar = @sayvertar WHERE kesim_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@kestar", kestar);
+            cmd.Parameters.AddWithValue("@kesmaz", kesmaz);
+            cmd.Parameters.AddWithValue("@kesmik", kesmik);
+            cmd.Parameters.AddWithValue("@sayvertar", sayvertar);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");

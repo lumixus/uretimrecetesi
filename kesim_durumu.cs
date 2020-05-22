@@ -62,5 +62,64 @@ namespace uretimrecetesi
             }
             yeni.baglantikapat();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.UpdateKesim(Convert.ToInt32(textBox3.Text),dateTimePicker1.Value, textBox2.Text,textBox4.Text,dateTimePicker2.Value);
+            dataGridView1.DataSource = yeni.selectKesim();
+            yeni.baglantikapat();
+        }
+
+        private void kesim_durumu_Load(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox4.Clear();
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
     }
 }

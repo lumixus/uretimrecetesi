@@ -75,7 +75,7 @@ namespace uretimrecetesi
         {
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            yeni.UpdateSayaciDurumu(textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, textBox4.Text, textBox2.Text);
+            yeni.UpdateSayaciDurumu(Convert.ToInt32(textBox3.Text), dateTimePicker1.Value, dateTimePicker2.Value, textBox4.Text, textBox2.Text);
             dataGridView1.DataSource = yeni.select_sayaci();
             yeni.baglantikapat();
         }

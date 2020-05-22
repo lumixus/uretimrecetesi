@@ -95,7 +95,7 @@ namespace uretimrecetesi
             {
                 cinsiyet = "Kadın";
             }
-            yeni.UpdatePersonel(textBox7.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,dateTimePicker1.Value,comboBox2.Text,cinsiyet, textBox6.Text);
+            yeni.UpdatePersonel(Convert.ToInt32(textBox7.Text),textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,dateTimePicker1.Value,comboBox2.Text,cinsiyet, textBox6.Text);
             dataGridView1.DataSource = yeni.selectPersonel();
             yeni.baglantikapat();
         }

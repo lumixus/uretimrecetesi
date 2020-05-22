@@ -110,7 +110,7 @@ namespace uretimrecetesi
         {
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            yeni.UpdateUretimSemasi(textBox9.Text,textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox7.Text, textBox8.Text, textBox6.Text);
+            yeni.UpdateUretimSemasi(Convert.ToInt32(textBox9.Text),textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox7.Text, textBox8.Text, textBox6.Text);
             dataGridView1.DataSource = yeni.select_uretimsemasi();
             yeni.baglantikapat();
         }
