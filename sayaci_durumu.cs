@@ -194,5 +194,19 @@ namespace uretimrecetesi
                 button2.Enabled = false;
             }
         }
+
+        private void sayaci_durumu_Load(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
     }
 }

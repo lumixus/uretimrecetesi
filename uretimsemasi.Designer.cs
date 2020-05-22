@@ -386,6 +386,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uretimsemasi";
             this.Text = "Üretim Şeması";
+            this.Load += new System.EventHandler(this.uretimsemasi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

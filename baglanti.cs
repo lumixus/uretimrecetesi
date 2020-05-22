@@ -692,5 +692,21 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");
         }
+        public void UpdatePersonel(string id, string ad, string soyad, string tc, string tel, DateTime tar, string gorev, string mail,string cins)
+        {
+            cmd.CommandText = "UPDATE pers SET pers_adi = @ad , pers_soyadi = @soyad, pers_tc = @tv, pers_telno = @tel, pers_gorev_id = @gorev, is_bas_tar = @tar, cinsiyet = @cins, pers_mail = @mail WHERE pers_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@ad", ad);
+            cmd.Parameters.AddWithValue("@soyad", soyad);
+            cmd.Parameters.AddWithValue("@tc", tc);
+            cmd.Parameters.AddWithValue("@tel", tel);
+            cmd.Parameters.AddWithValue("@gorev", gorev);
+            cmd.Parameters.AddWithValue("@tar", tar);
+            cmd.Parameters.AddWithValue("@mail", mail);
+            cmd.Parameters.AddWithValue("@cins", cins);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+        }
     }
 }

@@ -82,14 +82,80 @@ namespace uretimrecetesi
             yeni.baglantikapat();
         }
 
-        private void Personeller_Load(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            string cinsiyet = "";
+            if (radioButton1.Checked)
+            {
+                cinsiyet = "Erkek";
+            }
+            else
+            {
+                cinsiyet = "Kadın";
+            }
+            yeni.UpdatePersonel(textBox7.Text,textBox2.Text,textBox3.Text,textBox4.Text,textBox5.Text,dateTimePicker1.Value,comboBox2.Text,cinsiyet, textBox6.Text);
+            dataGridView1.DataSource = yeni.selectPersonel();
+            yeni.baglantikapat();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            if (textBox7.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox7.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox5.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+            comboBox2.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+
+            if (textBox7.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Personeller_Load(object sender, EventArgs e)
         {
-
+            if (textBox7.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
         }
     }
 }

@@ -136,5 +136,19 @@ namespace uretimrecetesi
             }
 
         }
+
+        private void uretimsemasi_Load(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
     }
 }

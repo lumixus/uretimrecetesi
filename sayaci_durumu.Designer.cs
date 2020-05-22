@@ -325,6 +325,7 @@
             this.Name = "sayaci_durumu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sayacı Durumu";
+            this.Load += new System.EventHandler(this.sayaci_durumu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
