@@ -90,5 +90,14 @@ namespace uretimrecetesi
             }
             yeni.baglantikapat();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            //yeni.UpdateBulunan(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            dataGridView1.DataSource = yeni.selectPersonel();
+            yeni.baglantikapat();
+        }
     }
 }
