@@ -82,5 +82,59 @@ namespace uretimrecetesi
             dataGridView1.DataSource = yeni.select_uretimsemasi();
             yeni.baglantikapat();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox1.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            textBox8.Clear();
+            textBox9.Clear();
+            if (textBox9.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.UpdateUretimSemasi(textBox9.Text,textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox7.Text, textBox8.Text, textBox6.Text);
+            dataGridView1.DataSource = yeni.select_uretimsemasi();
+            yeni.baglantikapat();
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox9.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox5.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            textBox7.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            textBox8.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            if (textBox9.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+
+        }
     }
 }

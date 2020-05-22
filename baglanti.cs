@@ -665,5 +665,20 @@ namespace uretimrecetesi
             MessageBox.Show("Güncellendi " + id + "ID");
 
         }
+        public void UpdateUretimSemasi(string id,string uretilecekurun, string sunideri,string deri,string bagcik,string ilac,string salpa,string taban)
+        {
+            cmd.CommandText = "UPDATE uretim SET uretilecek_urun = @uretilecekurun , sunnideri = @sunideri, deri = @deri, bagcik=@bagcik, ilac=@ilac,salpa=@salpa,taban=@taban WHERE uretim_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@uretilecekurun", uretilecekurun);
+            cmd.Parameters.AddWithValue("@sunideri", sunideri);
+            cmd.Parameters.AddWithValue("@deri", deri);
+            cmd.Parameters.AddWithValue("@bagcik", bagcik);
+            cmd.Parameters.AddWithValue("@ilac", ilac);
+            cmd.Parameters.AddWithValue("@salpa", salpa);
+            cmd.Parameters.AddWithValue("@taban", taban);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+        }
     }
 }
