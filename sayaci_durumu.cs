@@ -82,6 +82,14 @@ namespace uretimrecetesi
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(String.IsNullOrEmpty(textBox5.Text))
+            {
+                MessageBox.Show("BOŞ BIRAKILAMAZ");
+            }
+            else {
+            var kayitsayisi = Convert.ToInt32(textBox5.Text);
+            DateTime ilktarih;
+            DateTime digertarih;
             saveFileDialog1.ShowDialog();
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
@@ -96,8 +104,8 @@ namespace uretimrecetesi
             Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
 
             Excel.Chart chartPage = myChart.Chart;
-            chartRange = xlWorkSheet.get_Range("b1", "c3");
-            chartPage.SetSourceData(chartRange, misValue);
+          //  chartRange = xlWorkSheet.get_Range("b1", "c3");
+          //  chartPage.SetSourceData(chartRange, misValue);
             chartPage.ChartType = Excel.XlChartType.xlBarStacked;
             chartPage.ChartArea.Width = 800;
             var Xaxis = (Excel.Axis)chartPage.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
@@ -107,28 +115,32 @@ namespace uretimrecetesi
             DateTime max = DateTime.Today.AddDays(30);
             Xvalue.MinimumScale = min.ToOADate();
             Xvalue.MaximumScale = max.ToOADate();
-            var series1 = (Excel.Series)chartPage.SeriesCollection(1);
+            var series1 = (Excel.SeriesCollection)chartPage.SeriesCollection();
+            var line1 = series1.NewSeries();
+            line1.Name = "Veriliş Tarihi";
+            line1.Values = xlWorkSheet.get_Range("b2", "b"+ (kayitsayisi + 1).ToString());
+            line1.XValues = xlWorkSheet.get_Range("A2", "A"+ (kayitsayisi + 1).ToString());
+            line1.Interior.ColorIndex = 0;
+           var series2 = (Excel.SeriesCollection)chartPage.SeriesCollection();
+            var line2 = series2.NewSeries();
+            line2.Name = "İşin Yapılma Aralığı";
+            line2.Values = xlWorkSheet.get_Range("c2", "c"+(kayitsayisi+1).ToString());
+          //  line2.XValues = xlWorkSheet.get_Range("b2", "b3");
 
-            series1.Interior.ColorIndex = 0;
             //add data
             xlWorkSheet.Cells[1, 1] = "";
             xlWorkSheet.Cells[1, 2] = "Veriliş Tarihi";
             xlWorkSheet.Cells[1, 3] = "Gün Sayısı";
+            for (int i = 0; i < kayitsayisi; i++)
+            {
+            ilktarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[2].Value);
+            digertarih = Convert.ToDateTime(dataGridView1.Rows[i].Cells[1].Value);
+            xlWorkSheet.Cells[2+i, 1] = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            xlWorkSheet.Cells[2+i, 2] = dataGridView1.Rows[i].Cells[1].Value;
+            xlWorkSheet.Cells[2+i, 3] = Convert.ToDateTime(dataGridView1.Rows[i].Cells[2].Value).Subtract(Convert.ToDateTime(dataGridView1.Rows[i].Cells[1].Value)).TotalDays.ToString();
+            }
 
-            DateTime ilktarih = Convert.ToDateTime(dataGridView1.Rows[0].Cells[2].Value);
-            DateTime digertarih = Convert.ToDateTime(dataGridView1.Rows[0].Cells[1].Value);
-            xlWorkSheet.Cells[2, 1] = dataGridView1.Rows[0].Cells[4].Value.ToString();
-            xlWorkSheet.Cells[2, 2] = dataGridView1.Rows[0].Cells[1].Value;
-            xlWorkSheet.Cells[2, 3] = Convert.ToDateTime(dataGridView1.Rows[0].Cells[2].Value).Subtract(Convert.ToDateTime(dataGridView1.Rows[0].Cells[1].Value)).TotalDays.ToString();
-
-
-            xlWorkSheet.Cells[3, 1] = dataGridView1.Rows[1].Cells[4].Value.ToString();
-            xlWorkSheet.Cells[3, 2] = dataGridView1.Rows[1].Cells[1].Value;
-            xlWorkSheet.Cells[3, 3] = Convert.ToDateTime(dataGridView1.Rows[1].Cells[2].Value).Subtract(Convert.ToDateTime(dataGridView1.Rows[1].Cells[1].Value)).TotalDays.ToString();
-
-
-
-
+      
 
             xlWorkBook.SaveAs(saveFileDialog1.FileName + ".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
@@ -138,7 +150,7 @@ namespace uretimrecetesi
             releaseObject(xlApp);
             MessageBox.Show("Grafik Oluşturuldu ");
 
-
+            }
 
         }
         private void releaseObject(object obj)
