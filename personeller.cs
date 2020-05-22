@@ -25,10 +25,7 @@ namespace uretimrecetesi
         {
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                yeni.deletePersonel(Convert.ToInt32(row.Cells[0].Value.ToString()));
-            }
+            yeni.deletePersonel(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
             MessageBox.Show("Personel Silindi");
             dataGridView1.DataSource = yeni.selectPersonel();
             yeni.baglantikapat();

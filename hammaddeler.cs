@@ -59,10 +59,7 @@ namespace uretimrecetesi
 
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
-            {
-                yeni.deleteHammadde(Convert.ToInt32(row.Cells[0].Value.ToString()));
-            }
+            yeni.deleteHammadde(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
             MessageBox.Show("Hammadde Silindi");
             dataGridView1.DataSource = yeni.select_hammaddeler();
             yeni.baglantikapat();
@@ -112,11 +109,17 @@ namespace uretimrecetesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dateTimePicker1.Value = DateTime.Today;
             textBox5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            DataTable test = yeni.select_hammaddeler();
+            DateTime tarih = Convert.ToDateTime(test.Rows[dataGridView1.CurrentRow.Index]["alis_tar"]);
+            dateTimePicker1.Value = tarih;
+            yeni.baglantikapat();
             if (textBox5.Text == "")
             {
                 button5.Enabled = false;
