@@ -720,5 +720,17 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");
         }
+        public void UpdateHammadde(int id, string adi, string miktar, DateTime altar, string minmiktar)
+        {
+            cmd.CommandText = "UPDATE hammaddeler SET ham_adi = @adi , ham_miktar = @miktar, alis_tar = @altar, min_miktar = @minmiktar WHERE ham_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@adi", adi);
+            cmd.Parameters.AddWithValue("@miktar", miktar);
+            cmd.Parameters.AddWithValue("@altar", altar);
+            cmd.Parameters.AddWithValue("@minmiktar", minmiktar);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+        }
     }
 }

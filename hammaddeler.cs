@@ -69,8 +69,65 @@ namespace uretimrecetesi
      
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.UpdateHammadde(Convert.ToInt32(textBox5.Text), textBox1.Text, textBox2.Text,dateTimePicker1.Value,textBox2.Text);
+            dataGridView1.DataSource = yeni.select_hammaddeler();
+            yeni.baglantikapat();
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox1.Clear();
+            textBox5.Clear();
+            if (textBox5.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
+        }
 
+        private void hammaddeler_Load(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
+        }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            if (textBox5.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
+
+        }
     }
 }
