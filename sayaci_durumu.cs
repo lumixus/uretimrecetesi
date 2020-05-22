@@ -66,14 +66,18 @@ namespace uretimrecetesi
             var sayaciadi = textBox2.Text;
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            yeni.insertsayaci(vertar, geltar, urun,sayaciadi);
+            yeni.insertsayaci(vertar, geltar, urun, sayaciadi);
             dataGridView1.DataSource = yeni.select_sayaci();
             yeni.baglantikapat();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            baglanti yeni = new baglanti();
+            yeni.baglandimi();
+            yeni.UpdateSayaciDurumu(textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, textBox4.Text, textBox2.Text);
+            dataGridView1.DataSource = yeni.select_sayaci();
+            yeni.baglantikapat();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -88,25 +92,25 @@ namespace uretimrecetesi
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             Excel.Range chartRange;
-             Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
-             Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
+            Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
 
-             Excel.Chart chartPage = myChart.Chart;
-             chartRange = xlWorkSheet.get_Range("b1", "c3");
-             chartPage.SetSourceData(chartRange, misValue);
-             chartPage.ChartType = Excel.XlChartType.xlBarStacked;
-             chartPage.ChartArea.Width = 800;
-             var Xaxis = (Excel.Axis)chartPage.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
-             var Xvalue = chartPage.Axes(Excel.XlAxisType.xlValue);
-             Xaxis.ReversePlotOrder = true;
-             DateTime min = DateTime.Today.AddDays(-30);
-             DateTime max = DateTime.Today.AddDays(30);
-             Xvalue.MinimumScale = min.ToOADate();
-             Xvalue.MaximumScale = max.ToOADate();
-             var series1 = (Excel.Series)chartPage.SeriesCollection(1);
+            Excel.Chart chartPage = myChart.Chart;
+            chartRange = xlWorkSheet.get_Range("b1", "c3");
+            chartPage.SetSourceData(chartRange, misValue);
+            chartPage.ChartType = Excel.XlChartType.xlBarStacked;
+            chartPage.ChartArea.Width = 800;
+            var Xaxis = (Excel.Axis)chartPage.Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary);
+            var Xvalue = chartPage.Axes(Excel.XlAxisType.xlValue);
+            Xaxis.ReversePlotOrder = true;
+            DateTime min = DateTime.Today.AddDays(-30);
+            DateTime max = DateTime.Today.AddDays(30);
+            Xvalue.MinimumScale = min.ToOADate();
+            Xvalue.MaximumScale = max.ToOADate();
+            var series1 = (Excel.Series)chartPage.SeriesCollection(1);
 
-             series1.Interior.ColorIndex = 0;
-             //add data
+            series1.Interior.ColorIndex = 0;
+            //add data
             xlWorkSheet.Cells[1, 1] = "";
             xlWorkSheet.Cells[1, 2] = "Veriliş Tarihi";
             xlWorkSheet.Cells[1, 3] = "Gün Sayısı";
@@ -122,19 +126,21 @@ namespace uretimrecetesi
             xlWorkSheet.Cells[3, 2] = dataGridView1.Rows[1].Cells[1].Value;
             xlWorkSheet.Cells[3, 3] = Convert.ToDateTime(dataGridView1.Rows[1].Cells[2].Value).Subtract(Convert.ToDateTime(dataGridView1.Rows[1].Cells[1].Value)).TotalDays.ToString();
 
-            
-            
 
 
-            xlWorkBook.SaveAs(saveFileDialog1.FileName +".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+
+
+            xlWorkBook.SaveAs(saveFileDialog1.FileName + ".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
             MessageBox.Show("Grafik Oluşturuldu ");
-       
-    }
+
+
+
+        }
         private void releaseObject(object obj)
         {
             try
@@ -150,6 +156,42 @@ namespace uretimrecetesi
             finally
             {
                 GC.Collect();
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox3.Clear();
+            textBox2.Clear();
+            textBox4.Clear();
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
+            }
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            if (textBox3.Text == "")
+            {
+                button5.Enabled = false;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button2.Enabled = false;
             }
         }
     }

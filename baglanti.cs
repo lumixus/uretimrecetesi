@@ -680,5 +680,17 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show("Güncellendi " + id + "ID");
         }
+        public void UpdateSayaciDurumu(string id, DateTime vertar, DateTime geltar, string yapurun, string versay)
+        {
+            cmd.CommandText = "UPDATE sayaci SET verilis_tar = @vertar , gelis_tar = @geltar, yapilan_urun = @yapurun, sayaci_adi=@versay WHERE sayaci_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@vertar", vertar);
+            cmd.Parameters.AddWithValue("@geltar", geltar);
+            cmd.Parameters.AddWithValue("@yapurun", yapurun);
+            cmd.Parameters.AddWithValue("@versay", versay);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Güncellendi " + id + "ID");
+        }
     }
 }
