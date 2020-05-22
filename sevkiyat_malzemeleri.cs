@@ -119,5 +119,10 @@ namespace uretimrecetesi
             dataGridView1.DataSource = yeni.selectSevkiyat();
             yeni.baglantikapat();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

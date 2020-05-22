@@ -662,7 +662,7 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@malzememiktar", miktar);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Güncellendi " + id + "ID");
+            MessageBox.Show(malzemeadi + " Güncellendi");
 
         }
         public void UpdateUretimSemasi(int id,string uretilecekurun, string sunideri,string deri,string bagcik,string ilac,string salpa,string taban)
@@ -678,7 +678,7 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@taban", taban);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Güncellendi " + id + "ID");
+            MessageBox.Show(uretilecekurun + " Güncellendi");
         }
         public void UpdateSayaciDurumu(int id, DateTime vertar, DateTime geltar, string yapurun, string versay)
         {
@@ -690,7 +690,7 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@versay", versay);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Güncellendi " + id + "ID");
+            MessageBox.Show(yapurun + " Güncellendi");
         }
         public void UpdatePersonel(int id, string ad, string soyad, string tc, string tel, DateTime tar, string gorev, string mail,string cins)
         {
@@ -706,7 +706,7 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@cins", cins);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Güncellendi " + id + "ID");
+            MessageBox.Show(ad + " Güncellendi");
         }
         public void UpdateKesim(int id, DateTime kestar, string kesmaz, string kesmik, DateTime sayvertar)
         {
@@ -730,7 +730,21 @@ namespace uretimrecetesi
             cmd.Parameters.AddWithValue("@minmiktar", minmiktar);
             cmd.Connection = con;
             cmd.ExecuteNonQuery();
-            MessageBox.Show("Güncellendi " + id + "ID");
+            MessageBox.Show(adi + " Güncellendi");
+        }
+        public void UpdateBulunan(int id, string adi, string adet, string fiyat, string model,string numara,string renk)
+        {
+            cmd.CommandText = "UPDATE bulunan_urunler SET urun_adi = @adi , urun_adet = @adet, birim_fiyat = @fiyat, modeli = @model, numara = @numara, rengi = @renk  WHERE urun_id =" + id;
+            // cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@adi", adi);
+            cmd.Parameters.AddWithValue("@adet", adet);
+            cmd.Parameters.AddWithValue("@fiyat", fiyat);
+            cmd.Parameters.AddWithValue("@model", model);
+            cmd.Parameters.AddWithValue("@numara", numara);
+            cmd.Parameters.AddWithValue("@renk", renk);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            MessageBox.Show(adi + " Güncellendi");
         }
     }
 }

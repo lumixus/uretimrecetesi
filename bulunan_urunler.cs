@@ -36,7 +36,16 @@ namespace uretimrecetesi
 
         private void bulunan_urunler_Load(object sender, EventArgs e)
         {
-
+            if (textBox8.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,9 +104,30 @@ namespace uretimrecetesi
         {
             baglanti yeni = new baglanti();
             yeni.baglandimi();
-            //yeni.UpdateBulunan(Convert.ToInt32(textBox1.Text), textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+            yeni.UpdateBulunan(Convert.ToInt32(textBox8.Text), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
             dataGridView1.DataSource = yeni.selectPersonel();
             yeni.baglantikapat();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox8.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            textBox6.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            if (textBox8.Text == "")
+            {
+                button5.Enabled = false;
+                button1.Enabled = true;
+            }
+            else
+            {
+                button5.Enabled = true;
+                button1.Enabled = false;
+            }
         }
     }
 }
