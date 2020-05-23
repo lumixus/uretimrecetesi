@@ -140,9 +140,10 @@ namespace uretimrecetesi
             xlWorkSheet.Cells[2+i, 3] = Convert.ToDateTime(dataGridView1.Rows[i].Cells[2].Value).Subtract(Convert.ToDateTime(dataGridView1.Rows[i].Cells[1].Value)).TotalDays.ToString();
             }
 
-      
 
-            xlWorkBook.SaveAs(saveFileDialog1.FileName + ".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkSheet.Columns.AutoFit();
+                xlWorkSheet.Rows.AutoFit();
+                xlWorkBook.SaveAs(saveFileDialog1.FileName + ".xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
             releaseObject(xlWorkSheet);
