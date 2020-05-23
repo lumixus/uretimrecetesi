@@ -77,20 +77,26 @@ namespace uretimrecetesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            if(textBox3.Text == "")
+            if (String.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
             {
-                button5.Enabled = false;
-                button1.Enabled = true;
+                MessageBox.Show("Dolu olan bir satır seçilmelidir !");
             }
             else
             {
-                button5.Enabled = true;
-                button1.Enabled = false;
+                textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                if (textBox3.Text == "")
+                {
+                    button5.Enabled = false;
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button5.Enabled = true;
+                    button1.Enabled = false;
+                }
             }
-            
         }
 
         private void button4_Click(object sender, EventArgs e)
