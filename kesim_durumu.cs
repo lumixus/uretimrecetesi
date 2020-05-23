@@ -105,20 +105,27 @@ namespace uretimrecetesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
-            dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-            if (textBox3.Text == "")
+            if (String.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
             {
-                button5.Enabled = false;
-                button2.Enabled = true;
+                MessageBox.Show("Dolu olan bir satır seçilmelidir !");
             }
             else
             {
-                button5.Enabled = true;
-                button2.Enabled = false;
+                textBox3.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                if (textBox3.Text == "")
+                {
+                    button5.Enabled = false;
+                    button2.Enabled = true;
+                }
+                else
+                {
+                    button5.Enabled = true;
+                    button2.Enabled = false;
+                }
             }
         }
     }
