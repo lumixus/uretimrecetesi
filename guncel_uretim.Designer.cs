@@ -157,7 +157,7 @@
             this.Controls.Add(this.label1);
             this.Name = "guncel_uretim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "guncel_uretim";
+            this.Text = "Güncel Üretim Durumu";
             this.Load += new System.EventHandler(this.guncel_uretim_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
