@@ -746,5 +746,13 @@ namespace uretimrecetesi
             cmd.ExecuteNonQuery();
             MessageBox.Show(adi + " Güncellendi");
         }
+        public int GetUser(string kullaniciadi,string sifre)
+        {
+            cmd.CommandText = "SELECT count(*) FROM yoneticiler WHERE username = @username and password = @password";
+            cmd.Parameters.AddWithValue("@username", kullaniciadi);
+            cmd.Parameters.AddWithValue("@password", sifre);
+            cmd.ExecuteNonQuery();
+           return (int)cmd.ExecuteScalar();
+        }
     }
 }
