@@ -111,22 +111,29 @@ namespace uretimrecetesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox8.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            textBox6.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            if (textBox8.Text == "")
+            if (String.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString()))
             {
-                button5.Enabled = false;
-                button1.Enabled = true;
+                MessageBox.Show("Dolu olan bir satır seçilmelidir !");
             }
             else
             {
-                button5.Enabled = true;
-                button1.Enabled = false;
+                textBox8.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                textBox6.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                if (textBox8.Text == "")
+                {
+                    button5.Enabled = false;
+                    button1.Enabled = true;
+                }
+                else
+                {
+                    button5.Enabled = true;
+                    button1.Enabled = false;
+                }
             }
         }
     }
