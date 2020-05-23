@@ -109,6 +109,10 @@ namespace uretimrecetesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (String.IsNullOrEmpty(dataGridView1.CurrentRow.Cells[0].Value.ToString())) {
+                MessageBox.Show("Dolu olan bir satır seçilmelidir !");
+            }
+            else { 
             dateTimePicker1.Value = DateTime.Today;
             textBox5.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
@@ -129,6 +133,7 @@ namespace uretimrecetesi
             {
                 button5.Enabled = true;
                 button1.Enabled = false;
+            }
             }
 
         }
