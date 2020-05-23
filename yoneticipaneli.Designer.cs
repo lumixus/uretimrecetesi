@@ -49,7 +49,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.raporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -62,7 +61,6 @@
             this.personelToolStripMenuItem,
             this.depoToolStripMenuItem,
             this.üretimToolStripMenuItem,
-            this.raporToolStripMenuItem,
             this.çıkışToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -247,12 +245,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(444, 179);
             this.dataGridView3.TabIndex = 11;
             // 
-            // raporToolStripMenuItem
-            // 
-            this.raporToolStripMenuItem.Name = "raporToolStripMenuItem";
-            this.raporToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.raporToolStripMenuItem.Text = "Rapor";
-            // 
             // yoneticipaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +297,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.ToolStripMenuItem üretimŞemalarıToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem raporToolStripMenuItem;
     }
 }
